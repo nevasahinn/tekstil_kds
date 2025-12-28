@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabrika Bazlı Performans Analizi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">🏭 KDS</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Executive Summary</a></li>
+            <li><a href="factory-performance.html" class="active">Fabrika Performansı</a></li>
+            <li><a href="shipment-analysis.html">Sevkiyat Analizi</a></li>
+            <li><a href="cost-analysis.html">Maliyet Analizi</a></li>
+            <li><a href="scenarios.html">Senaryo Simülasyonları</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-navbar">
+            <div class="nav-left">
+                <div class="nav-logo">Tekstil KDS</div>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-avatar">GM</div>
+                    <div class="user-info">
+                        <div class="user-name">Genel Müdür</div>
+                        <div class="user-role">Yönetici</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <header class="page-header">
+                <div>
+                    <div class="breadcrumbs">
+                        <a href="index.html">Dashboard</a> / Fabrika Performansı
+                    </div>
+                    <h2>Fabrika Bazlı Performans Analizi</h2>
+                </div>
+                <div class="page-header-actions">
+                    <div class="filter-group">
+                        <select id="factorySelect" class="filter-select">
+                            <option value="">Tüm Fabrikalar</option>
+                        </select>
+                        <select id="yearSelect" class="filter-select">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Fabrika Özet Kartları -->
+            <section class="factory-cards" id="factoryCards">
+                <div class="loading">Yükleniyor...</div>
+            </section>
+
+            <!-- Grafikler -->
+            <div class="charts-grid">
+                <section class="chart-section">
+                    <h3>Kapasite Kullanım Oranları</h3>
+                    <canvas id="capacityChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>Departman Bazlı Üretim Dağılımı</h3>
+                    <canvas id="departmentChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>Aylık Üretim Trendi</h3>
+                    <canvas id="monthlyTrendChart"></canvas>
+                </section>
+            </div>
+
+            <!-- Detaylı Tablo -->
+            <section class="table-section">
+                <h3>Detaylı Performans Tablosu</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Departman</th>
+                            <th>Fabrika Sayısı</th>
+                            <th>Toplam Üretim</th>
+                            <th>Ortalama Kalite Oranı (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="performanceTableBody">
+                        <tr><td colspan="4" class="loading">Yükleniyor...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/factory-performance.js"></script>
+</body>
+</html>

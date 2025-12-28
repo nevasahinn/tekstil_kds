@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maliyet ve Kârlılık Analizi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">🏭 KDS</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Executive Summary</a></li>
+            <li><a href="factory-performance.html">Fabrika Performansı</a></li>
+            <li><a href="shipment-analysis.html">Sevkiyat Analizi</a></li>
+            <li><a href="cost-analysis.html" class="active">Maliyet Analizi</a></li>
+            <li><a href="scenarios.html">Senaryo Simülasyonları</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-navbar">
+            <div class="nav-left">
+                <div class="nav-logo">Tekstil KDS</div>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-avatar">GM</div>
+                    <div class="user-info">
+                        <div class="user-name">Genel Müdür</div>
+                        <div class="user-role">Yönetici</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <header class="page-header">
+                <div>
+                    <div class="breadcrumbs">
+                        <a href="index.html">Dashboard</a> / Maliyet Analizi
+                    </div>
+                    <h2>Maliyet ve Kârlılık Analizi</h2>
+                </div>
+                <div class="page-header-actions">
+                    <div class="filter-group">
+                        <select id="factorySelect" class="filter-select">
+                            <option value="">Tüm Fabrikalar</option>
+                        </select>
+                        <select id="yearSelect" class="filter-select">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Maliyet Özet Kartları -->
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Toplam Hammadde Maliyeti</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalRawMaterial">-</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Toplam İşçilik Maliyeti</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalLabor">-</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Toplam Enerji Maliyeti</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalEnergy">-</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Toplam Maliyet</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalCost">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grafikler -->
+            <div class="charts-grid">
+                <section class="chart-section">
+                    <h3>Fabrika Bazlı Maliyet Dağılımı</h3>
+                    <canvas id="costDistributionChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>Adet Başı Maliyet Karşılaştırması</h3>
+                    <canvas id="costPerUnitChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>Aylık Maliyet Trend Analizi</h3>
+                    <canvas id="costTrendChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>Bütçe vs Gerçekleşen Farkı</h3>
+                    <canvas id="budgetVarianceChart"></canvas>
+                </section>
+            </div>
+
+            <!-- Detaylı Tablo -->
+            <section class="table-section">
+                <h3>Detaylı Maliyet Tablosu</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Fabrika</th>
+                            <th>Hammadde</th>
+                            <th>İşçilik</th>
+                            <th>Enerji</th>
+                            <th>Diğer</th>
+                            <th>Toplam</th>
+                            <th>Bütçe</th>
+                            <th>Sapma</th>
+                        </tr>
+                    </thead>
+                    <tbody id="costTableBody">
+                        <tr><td colspan="8" class="loading">Yükleniyor...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/cost-analysis.js"></script>
+</body>
+</html>

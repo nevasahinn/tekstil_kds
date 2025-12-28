@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevkiyat & İhracat Analizi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">🏭 KDS</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Executive Summary</a></li>
+            <li><a href="factory-performance.html">Fabrika Performansı</a></li>
+            <li><a href="shipment-analysis.html" class="active">Sevkiyat Analizi</a></li>
+            <li><a href="cost-analysis.html">Maliyet Analizi</a></li>
+            <li><a href="scenarios.html">Senaryo Simülasyonları</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-navbar">
+            <div class="nav-left">
+                <div class="nav-logo">Tekstil KDS</div>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-avatar">GM</div>
+                    <div class="user-info">
+                        <div class="user-name">Genel Müdür</div>
+                        <div class="user-role">Yönetici</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <header class="page-header">
+                <div>
+                    <div class="breadcrumbs">
+                        <a href="index.html">Dashboard</a> / Sevkiyat Analizi
+                    </div>
+                    <h2>Sevkiyat & İhracat Analizi</h2>
+                    <p class="subtitle">12 Aylık (Yıllık) Sevkiyat Hedefleri ve Gerçekleşmeler</p>
+                </div>
+                <div class="page-header-actions">
+                </div>
+            </header>
+
+            <!-- 12 Aylık Hedef Özeti -->
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Toplam Hedef</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalTarget">-</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Toplam Gerçekleşen</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalShipped">-</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Kalan Miktar</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="remainingQuantity">-</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Genel Başarı Oranı</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="overallAchievement">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grafikler -->
+            <div class="charts-grid">
+                <section class="chart-section">
+                    <h3>12 Aylık Hedef vs Gerçekleşen (Fabrika Bazlı)</h3>
+                    <canvas id="targetChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>Departman Bazlı Hedef Gerçekleşme</h3>
+                    <canvas id="departmentTargetChart"></canvas>
+                </section>
+            </div>
+
+            <!-- En Çok Gecikme Olan Fabrika -->
+            <section class="performance-section">
+                <div class="performance-card worst" style="width: 100%;">
+                    <h3>⚠️ En Çok Sevkiyat Gecikmesi Olan Fabrika</h3>
+                    <div id="mostDelayedFactory" class="performer-info">
+                        <p class="loading">Yükleniyor...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sevkiyat Gecikmeleri -->
+            <section class="warnings-section">
+                <h3>⚠️ Sevkiyat Gecikmeleri</h3>
+                <div id="delaysContainer" class="warnings-grid">
+                    <p class="loading">Yükleniyor...</p>
+                </div>
+            </section>
+
+            <!-- Kalite Kontrol İstatistikleri -->
+            <div class="charts-grid">
+                <section class="chart-section">
+                    <h3>Kalite Kontrol Geçme Oranları</h3>
+                    <canvas id="qualityChart"></canvas>
+                </section>
+            </div>
+
+            <!-- Detaylı Tablo -->
+            <section class="table-section">
+                <h3>12 Aylık Hedef Detay Tablosu</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Fabrika</th>
+                            <th>Departman</th>
+                            <th>Hedef</th>
+                            <th>Gerçekleşen</th>
+                            <th>Kalan</th>
+                            <th>Başarı Oranı (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="targetTableBody">
+                        <tr><td colspan="6" class="loading">Yükleniyor...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/shipment-analysis.js"></script>
+</body>
+</html>

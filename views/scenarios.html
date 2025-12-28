@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senaryo Simülasyonları</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">🏭 KDS</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Executive Summary</a></li>
+            <li><a href="factory-performance.html">Fabrika Performansı</a></li>
+            <li><a href="shipment-analysis.html">Sevkiyat Analizi</a></li>
+            <li><a href="cost-analysis.html">Maliyet Analizi</a></li>
+            <li><a href="scenarios.html" class="active">Senaryo Simülasyonları</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-navbar">
+            <div class="nav-left">
+                <div class="nav-logo">Tekstil KDS</div>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-avatar">GM</div>
+                    <div class="user-info">
+                        <div class="user-name">Genel Müdür</div>
+                        <div class="user-role">Yönetici</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <header class="page-header">
+                <div>
+                    <div class="breadcrumbs">
+                        <a href="index.html">Dashboard</a> / Senaryo Simülasyonları
+                    </div>
+                    <h2>Senaryo Simülasyonları</h2>
+                    <p class="subtitle">"Olursa Ne Olur" Analizleri</p>
+                </div>
+                <div class="page-header-actions">
+                </div>
+            </header>
+
+            <!-- Senaryo 1: Yeni Kot Departmanı -->
+            <section class="scenario-section">
+                <h3>📦 Senaryo 1: Yeni Kot Departmanı Açılması</h3>
+                <div class="scenario-form">
+                    <div class="form-group">
+                        <label>Fabrika Seçin:</label>
+                        <select id="newDeptFactorySelect" class="form-select">
+                            <option value="">Fabrika seçin...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Departman Tipi:</label>
+                        <select id="newDeptTypeSelect" class="form-select">
+                            <option value="kot">Kot</option>
+                            <option value="penye">Penye</option>
+                            <option value="pamuklu">Pamuklu</option>
+                        </select>
+                    </div>
+                    <button onclick="simulateNewDepartment()" class="btn-primary">Simülasyonu Çalıştır</button>
+                </div>
+                <div id="newDeptResult" class="scenario-result"></div>
+            </section>
+
+            <!-- Senaryo 2: Fabrika Genişletme -->
+            <section class="scenario-section">
+                <h3>🏗️ Senaryo 2: Fabrika Genişletme</h3>
+                <div class="scenario-form">
+                    <div class="form-group">
+                        <label>Fabrika Seçin:</label>
+                        <select id="expansionFactorySelect" class="form-select">
+                            <option value="">Fabrika seçin...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Genişleme Yüzdesi (%):</label>
+                        <input type="number" id="expansionPercentage" class="form-input" value="20" min="5" max="100" step="5">
+                    </div>
+                    <button onclick="simulateFactoryExpansion()" class="btn-primary">Simülasyonu Çalıştır</button>
+                </div>
+                <div id="expansionResult" class="scenario-result"></div>
+            </section>
+
+            <!-- Senaryo Karşılaştırma Grafiği -->
+            <section class="chart-section" id="scenarioComparisonSection" style="display: none;">
+                <h3>Senaryo Karşılaştırması</h3>
+                <canvas id="scenarioComparisonChart"></canvas>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/scenarios.js"></script>
+</body>
+</html>

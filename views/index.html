@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karar Destek Sistemi - Executive Summary</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">🏭 KDS</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="active">Executive Summary</a></li>
+            <li><a href="factory-performance.html">Fabrika Performansı</a></li>
+            <li><a href="shipment-analysis.html">Sevkiyat Analizi</a></li>
+            <li><a href="cost-analysis.html">Maliyet Analizi</a></li>
+            <li><a href="scenarios.html">Senaryo Simülasyonları</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-navbar">
+            <div class="nav-left">
+                <div class="nav-logo">Tekstil KDS</div>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-avatar">GM</div>
+                    <div class="user-info">
+                        <div class="user-name">Genel Müdür</div>
+                        <div class="user-role">Yönetici</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <header class="page-header">
+                <div>
+                    <div class="breadcrumbs">
+                        <a href="index.html">Dashboard</a> / Executive Summary
+                    </div>
+                    <h2>Executive Summary</h2>
+                </div>
+                <div class="page-header-actions">
+                    <select id="yearSelect" class="year-select">
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Kritik Metrikler -->
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <h3>12 Aylık Sevkiyat Hedefi</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalTarget">-</div>
+                        <div class="metric-label">Toplam Hedef</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Gerçekleşen Sevkiyat</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="totalShipped">-</div>
+                        <div class="metric-label">Toplam Sevkiyat</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Hedef Gerçekleşme Oranı</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="achievementRate">-</div>
+                        <div class="metric-label">Başarı Oranı (%)</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Ortalama Kapasite Kullanımı</h3>
+                    <div class="metric-value-wrapper">
+                        <div class="metric-value" id="avgCapacityUtil">-</div>
+                        <div class="metric-label">Ortalama (%)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- En İyi ve En Düşük Performans -->
+            <section class="performance-section">
+                <div class="performance-card best">
+                    <h3>🏆 En İyi Performans</h3>
+                    <div id="bestPerformer" class="performer-info">
+                        <p class="factory-name">-</p>
+                        <p class="factory-city">-</p>
+                        <p class="factory-metric">Kapasite Kullanımı: -</p>
+                    </div>
+                </div>
+                <div class="performance-card worst">
+                    <h3>⚠️ En Düşük Performans</h3>
+                    <div id="worstPerformer" class="performer-info">
+                        <p class="factory-name">-</p>
+                        <p class="factory-city">-</p>
+                        <p class="factory-metric">Kapasite Kullanımı: -</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grafikler -->
+            <div class="charts-grid">
+                <section class="chart-section">
+                    <h3>Fabrika Performans Karşılaştırması</h3>
+                    <canvas id="factoryPerformanceChart"></canvas>
+                </section>
+
+                <section class="chart-section">
+                    <h3>12 Aylık Hedef vs Gerçekleşen (Fabrika Bazlı)</h3>
+                    <canvas id="productionTargetChart"></canvas>
+                </section>
+            </div>
+
+            <!-- Kritik Uyarılar -->
+            <section class="warnings-section">
+                <h3>🚨 Kritik Uyarılar</h3>
+                <div id="warningsContainer" class="warnings-grid">
+                    <p class="loading">Yükleniyor...</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/executive-summary.js"></script>
+</body>
+</html>
+
